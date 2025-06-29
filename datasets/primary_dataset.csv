@@ -1,4 +1,4 @@
-,nama,alamat,kecamatan,type,tahun,source_file,Jumlah Penduduk,Luas Wilayah (km²),Kepadatan (jiwa/km²)
+,nama,alamat,kecamatan,type,tahun,source_file,Jumlah Penduduk,Luas Wilayah,Kepadatan Jiwa
 0,CIWALK,JL. CIHAMPELAS NO. 160,coblong,tourism_shopping,2021,cleaned_objek_wisata_belanja.csv,115273.0,7.31,15769.22
 1,PARIS VAN JAVA RESORT LIFESTYLE PLACE,JL. SUKAJADI NO. 131-139,sukasari,tourism_shopping,2021,cleaned_objek_wisata_belanja.csv,77576.0,6.36,12197.48
 2,BTC FASHION MALL,JL. DR. DJUNJUNAN NO. 143-149,sukasari,tourism_shopping,2021,cleaned_objek_wisata_belanja.csv,77576.0,6.36,12197.48
