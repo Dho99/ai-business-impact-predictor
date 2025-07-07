@@ -1,0 +1,19 @@
+
+=== AI Business Impact Predictor - Model Summary ===
+
+Dataset Information:
+- Total samples: 30
+- Features used: 13
+- Train/Val/Test split: 24/24/6
+
+Best Model: Lasso Regression
+Performance Metrics:
+- Test R²: -1.2217
+- Test RMSE: 0.0461
+- Test MAE: 0.0372
+
+Features Used:
+jumlah_fnb, jumlah_taman, avg_price, Jumlah Penduduk, Luas Wilayah, Kepadatan Jiwa, jumlah_kampus, fnb_per_capita, fnb_per_km2, taman_per_capita, kampus_per_capita, density_category_num, price_category_num
+
+Model saved to: ../models/best_model.pkl
+Scaler saved to: ../models/scaler.pkl
