@@ -1,0 +1,38 @@
+=== LEAVE-ONE-OUT CROSS VALIDATION RESULTS ===
+Dataset Size: 30 samples
+Total Iterations: 30 per model
+
+MODEL PERFORMANCE METRICS:
+--------------------------------------------------
+
+Linear Regression:
+  R² Score: -0.3935
+  MAE: 0.0629
+  RMSE: 0.0774
+  Avg Time per Fold: 0.0025s
+  Total Time: 0.08s
+
+Logistic Regression:
+  R² Score: -0.7018
+  MAE: 0.0699
+  RMSE: 0.0855
+  Avg Time per Fold: 0.0042s
+  Total Time: 0.13s
+
+Random Forest:
+  R² Score: -0.4138
+  MAE: 0.0587
+  RMSE: 0.0779
+  Avg Time per Fold: 0.0673s
+  Total Time: 2.02s
+
+XGBoost:
+  R² Score: -0.9102
+  MAE: 0.0653
+  RMSE: 0.0906
+  Avg Time per Fold: 0.0162s
+  Total Time: 0.49s
+
+BEST MODELS:
+  Best R² Score: Linear Regression (-0.3935)
+  Best MAE: Random Forest (0.0587)

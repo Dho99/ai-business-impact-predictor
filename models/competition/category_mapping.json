@@ -1,0 +1,11 @@
+{
+  "category": {
+    "Restaurant": 0,
+    "Cafe": 1,
+    "Fast Food": 2,
+    "Bakery": 3,
+    "Food Truck": 4,
+    "Bar": 5,
+    "Other": 6
+  }
+}

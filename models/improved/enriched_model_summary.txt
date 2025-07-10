@@ -1,0 +1,10 @@
+=== ENRICHED MODEL PERFORMANCE SUMMARY ===
+Best Model: Linear Regression
+R² Score: 0.116463
+MAE: 0.238312
+RMSE: 0.363100
+CV Mean: 0.078169
+CV Std: 0.016889
+Features: Jumlah Penduduk, Luas Wilayah (km²), Kepadatan (jiwa/km²), jumlah_mall, jumlah_minimarket, jumlah_taman, price_range_encoded, jumlah_ulasan, kategori_resto_encoded
+Dataset Shape: (5115, 14)
+Training Date: 2025-07-09 17:41:56.474424

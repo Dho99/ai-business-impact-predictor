@@ -1,0 +1,9 @@
+Jumlah Penduduk
+Luas Wilayah (km²)
+Kepadatan (jiwa/km²)
+jumlah_mall
+jumlah_minimarket
+jumlah_taman
+price_range_encoded
+jumlah_ulasan
+kategori_resto_encoded

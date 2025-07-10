@@ -1,0 +1,28 @@
+Jumlah Penduduk
+Luas Wilayah (km²)
+Kepadatan (jiwa/km²)
+jumlah_mall
+jumlah_minimarket
+jumlah_taman
+jumlah_ulasan
+google_rating
+mall_per_capita
+minimarket_density
+taman_per_capita
+ulasan_per_capita
+competition_density
+market_potential
+infrastructure_score
+retail_accessibility
+rating_normalized
+log_jumlah_ulasan
+log_kepadatan
+kategori_resto_encoded
+price_range_encoded
+high_rating
+excellent_rating
+high_volume_reviews
+very_high_volume_reviews
+price_category_interaction
+rating_review_interaction
+density_infrastructure

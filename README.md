@@ -1,18 +1,25 @@
-# AI Business Impact Predictor
+# 🏪 AI Business Impact Predictor for F&B in Bandung
 
-A machine learning solution for predicting F&B business success and assessing location risk in Bandung, Indonesia.
+Sistem AI untuk memprediksi tingkat kesuksesan dan mengambil keputusan bisnis sebelum membuka restoran/usaha F&B di Kota Bandung. Menggunakan **Competition Model** yang dilatih dengan ensemble learning untuk memberikan rekomendasi **Go**, **Consider**, atau **Avoid**.
 
-## 🎯 Project Overview
+## 🎯 Fitur Utama
 
-This AI system helps Food & Beverage entrepreneurs make data-driven decisions when selecting business locations in Bandung. It analyzes various demographic, geographic, and market factors to predict business ratings and assess risk levels.
+### 1. **Competition Model Prediction**
+- **Go**: Sangat direkomendasikan untuk membuka usaha (🟢)
+- **Consider**: Perlu pertimbangan lebih lanjut dengan analisis mendalam (🟡)
+- **Avoid**: Tidak direkomendasikan untuk membuka usaha (🔴)
 
-## 🚀 Features
+### 2. **Analisis Komprehensif**
+- **Risk Assessment**: Penilaian tingkat risiko bisnis
+- **Investment Analysis**: Evaluasi potensi investasi dan estimasi ROI
+- **Market Potential**: Analisis potensi pasar berdasarkan demografis
+- **Competition Analysis**: Evaluasi tingkat kompetisi di area target
 
-- **Business Rating Prediction**: AI-powered prediction of expected business ratings (1-5 scale)
-- **Risk Assessment**: Comprehensive risk scoring system with LOW/MEDIUM/HIGH categories
-- **Location Analysis**: Market saturation and competition density analysis
-- **Tailored Recommendations**: Customized business recommendations based on location characteristics
-- **Kecamatan-level Insights**: District-wise risk analysis across Bandung
+### 3. **Visualisasi & Reporting**
+- Dashboard interaktif dengan grafik dan chart
+- Laporan bisnis dalam format Markdown dan Excel
+- Perbandingan multiple skenario lokasi
+- Export hasil dalam berbagai format
 
 ## 📊 Model Performance
 

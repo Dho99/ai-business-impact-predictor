@@ -1,0 +1,30 @@
+{
+  "model_type": "Ensemble (XGBoost + RandomForest + LightGBM)",
+  "features_count": 28,
+  "training_samples": 4092,
+  "test_samples": 1023,
+  "test_accuracy": 0.9755620723362659,
+  "test_f1_weighted": 0.9755680890923641,
+  "test_f1_macro": 0.9762264664002293,
+  "class_distribution": {
+    "Consider": 2045,
+    "Avoid": 1535,
+    "Go": 1535
+  },
+  "feature_engineering": {
+    "ratio_features": 8,
+    "interaction_features": 3,
+    "binary_features": 4,
+    "categorical_encoded": 2
+  },
+  "competition_readiness": "100%",
+  "expected_performance": "70-80% accuracy",
+  "model_files": {
+    "model": "final_competition_model.pkl",
+    "scaler": "competition_scaler.pkl",
+    "features": "feature_names_competition.txt",
+    "label_encoder_kategori": "label_encoder_kategori.pkl",
+    "label_encoder_target": "label_encoder_target.pkl",
+    "target_mapping": "target_mapping.json"
+  }
+}

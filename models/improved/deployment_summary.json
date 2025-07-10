@@ -1,0 +1,69 @@
+{
+  "dataset_info": {
+    "filename": "final_enriched_dataset_for_deployment.csv",
+    "total_restaurants": 5115,
+    "features_count": 9,
+    "target_variable": "google_rating",
+    "date_created": "2025-07-09 22:21:03"
+  },
+  "model_performance": {
+    "best_model": "Random Forest",
+    "best_r2_score": 0.21224125020047313,
+    "all_models": {
+      "Linear Regression": {
+        "test_r2": 0.09830218366472876,
+        "test_mae": 0.2466647657323304
+      },
+      "Logistic Regression": {
+        "test_r2": -15.588651168805775,
+        "test_mae": 1.5075893724819251
+      },
+      "Random Forest": {
+        "test_r2": 0.21224125020047313,
+        "test_mae": 0.22212485932502948
+      },
+      "XGBoost": {
+        "test_r2": 0.21109795105371176,
+        "test_mae": 0.2216629362429956
+      }
+    }
+  },
+  "features": {
+    "input_features": [
+      "Jumlah Penduduk",
+      "Luas Wilayah (km\u00b2)",
+      "Kepadatan (jiwa/km\u00b2)",
+      "jumlah_mall",
+      "jumlah_minimarket",
+      "jumlah_taman",
+      "price_range_encoded",
+      "jumlah_ulasan",
+      "kategori_resto_encoded"
+    ],
+    "target": "google_rating",
+    "new_enriched_features": [
+      "jumlah_ulasan",
+      "kategori_resto_encoded"
+    ],
+    "categorical_mappings": {
+      "Bakery": "0",
+      "Cafe": "1",
+      "Chinese Food": "2",
+      "Dessert": "3",
+      "Fast Food": "4",
+      "Japanese Food": "5",
+      "Korean Food": "6",
+      "Local Food": "7",
+      "Restaurant": "8",
+      "Seafood": "9",
+      "Western Food": "10"
+    }
+  },
+  "next_steps": [
+    "Deploy Business Prediction System",
+    "Create Web Interface",
+    "Integration with Maps API",
+    "Real-world validation",
+    "Continuous model improvement"
+  ]
+}
