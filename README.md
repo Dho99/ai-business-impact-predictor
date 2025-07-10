@@ -51,6 +51,7 @@ ai-business-impact-predictor/
 │   ├── *.csv                    # Analysis results
 │   └── *.txt                    # Reports and guides
 ├── predict.py                    # Deployment script for predictions
+├── predict_fnb_business_success.py # Script untuk prediksi cepat sukses bisnis F&B
 ├── requirements.txt              # Python dependencies
 └── README.md                     # Project documentation
 ```
@@ -87,6 +88,16 @@ jupyter notebook
 1. **Data Understanding**: Open `EDA/data_understanding.ipynb`
 2. **Model Development**: Run `EDA/model_development.ipynb`
 3. **Risk Assessment**: Execute `EDA/risk_assessment.ipynb`
+
+### Quick Prediction with Competition Model
+
+Run the dedicated prediction script for strategic location analysis:
+
+```bash
+python predict_fnb_business_success.py
+```
+
+This interactive script will guide you through entering location data and will generate a prediction with visualization.
 
 ### For Business Users
 

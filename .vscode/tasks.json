@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run FnB Business Success Predictor",
+			"type": "shell",
+			"command": "python predict_fnb_business_success.py",
+			"group": "test",
+			"problemMatcher": []
+		}
+	]
+}
