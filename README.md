@@ -60,7 +60,7 @@ ai-business-impact-predictor/
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/Dho99/ai-business-impact-predictor
 cd ai-business-impact-predictor
 ```
 
@@ -194,23 +194,5 @@ print(f"Risk Level: {result['risk_category']}")
 3. Make your changes
 4. Add tests if applicable
 5. Submit a pull request
-
-## 📄 License
-
-[Specify your license here]
-
-## 👥 Team
-
-- **Data Scientist**: [Your Name]
-- **Domain Expert**: F&B Industry Specialist
-- **Technical Lead**: [Your Name]
-
-## 📞 Support
-
-For questions or issues, please contact:
-- Email: [your-email@domain.com]
-- Issues: [GitHub Issues URL]
-
----
 
 **Note**: This project is specifically designed for the Bandung F&B market. Adaptation may be required for other cities or industries.
