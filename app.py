@@ -101,123 +101,107 @@ def load_assets():
         }
     
     except Exception as e:
-        def show_overview():
-            """Halaman Overview - Penjelasan terstruktur tentang AI Predictor"""
+        st.error(f"Error memuat aset: {str(e)}")
+        st.stop()
 
-            st.markdown("---")
+def validate_business_logic(target_ulasan, target_rating, kecamatan_data):
+    """
+    Validasi logika bisnis berdasarkan analisis data real dari dataset.
+    Data menunjukkan:
+    - Rating rata-rata: 4.51
+    - Ulasan rata-rata: 517, median: 202
+    - Bisnis dengan rating ≥4.8: rata-rata hanya 79 ulasan, maksimal 200 ulasan
+    - P95 ulasan: 2,819
+    - P99 ulasan: 5,025
+    """
+    warnings = []
+    errors = []
+    
+    jumlah_penduduk = kecamatan_data['Jumlah Penduduk']
+    
+    # Validasi berdasarkan data real: Rating vs Ulasan
+    if target_rating >= 4.8:
+        # Berdasarkan data, bisnis rating ≥4.8 rata-rata hanya 79 ulasan, max 200
+        if target_ulasan > 200:
+            errors.append(f"Rating {target_rating} dengan {target_ulasan:,} ulasan sangat tidak realistis. "
+                         f"Dari dataset real, bisnis dengan rating ≥4.8 maksimal hanya 200 ulasan (rata-rata 79).")
+        elif target_ulasan > 100:
+            warnings.append(f"Rating {target_rating} dengan {target_ulasan} ulasan cukup optimis. "
+                           f"Bisnis rating tinggi dalam dataset rata-rata hanya 79 ulasan.")
+    
+    elif target_rating >= 4.5:
+        # Rating tinggi tapi tidak ekstrem
+        if target_ulasan > 1000:
+            warnings.append(f"Rating {target_rating} dengan {target_ulasan:,} ulasan memerlukan kualitas sangat konsisten.")
+        elif target_ulasan > 500:
+            warnings.append(f"Mempertahankan rating {target_rating} dengan {target_ulasan} ulasan butuh manajemen kualitas ketat.")
+    
+    # Validasi jumlah ulasan berdasarkan persentil dataset
+    if target_ulasan > 5000:  # P99: 5,025
+        errors.append(f"Target {target_ulasan:,} ulasan melebihi 99% bisnis terbaik di dataset (maksimal realistis: ~5,000 ulasan).")
+    elif target_ulasan > 2800:  # P95: 2,819
+        warnings.append(f"Target {target_ulasan:,} ulasan sangat tinggi - hanya 5% bisnis terbaik yang mencapainya.")
+    elif target_ulasan > 950:  # P90: 958
+        warnings.append(f"Target {target_ulasan:,} ulasan tinggi - perlu strategi marketing dan kualitas konsisten.")
+    
+    # Validasi berdasarkan populasi
+    review_percentage = (target_ulasan / jumlah_penduduk) * 100
+    if review_percentage > 3:  # Lebih ketat dari sebelumnya
+        errors.append(f"Target ulasan ({target_ulasan:,}) tidak realistis untuk populasi {jumlah_penduduk:,.0f} orang "
+                     f"({review_percentage:.1f}% populasi). Maksimal realistis: ~{int(jumlah_penduduk * 0.03):,} ulasan.")
+    elif review_percentage > 1:
+        warnings.append(f"Target {review_percentage:.1f}% populasi memberi ulasan cukup optimis.")
+    
+    # Validasi rating yang terlalu rendah
+    if target_rating < 3.0:
+        errors.append(f"Rating {target_rating} terlalu rendah untuk bisnis yang viable. "
+                     f"Minimal target rating 3.0 untuk bisnis yang sustainable.")
+    elif target_rating < 3.5:
+        warnings.append(f"Rating {target_rating} di bawah rata-rata market (4.51). Pertimbangkan target yang lebih tinggi.")
+    
+    # Validasi kombinasi rating rendah dengan ulasan tinggi
+    if target_rating < 4.0 and target_ulasan > 500:
+        warnings.append(f"Rating {target_rating} dengan {target_ulasan} ulasan menunjukkan masalah kualitas yang serius.")
+    
+    return warnings, errors
 
-            st.header("Ringkasan Aplikasi")
-            st.write(
-                """
-                AI Business Impact Predictor membantu calon pengusaha Food & Beverage di Bandung untuk menilai kelayakan
-                lokasi usaha dengan memanfaatkan data demografis, infrastruktur, dan karakteristik pasar.
-                """
-            )
-
-            overview_col1, overview_col2, overview_col3 = st.columns(3)
-            with overview_col1:
-                st.metric("Jenis Model", "Ensemble Classifier")
-            with overview_col2:
-                st.metric("Dataset", "5.115 lokasi F&B")
-            with overview_col3:
-                st.metric("Output", "Go / Consider / Avoid")
-
-            st.markdown("---")
-
-            st.header("Alur Kerja AI")
-            workflow_col1, workflow_col2 = st.columns(2)
-
-            with workflow_col1:
-                st.subheader("1. Data Strategis")
-                st.write(
-                    """
-                    - Demografi: jumlah penduduk, kepadatan, luas wilayah
-                    - Infrastruktur: jumlah mall, minimarket, dan taman
-                    - Profil bisnis: kategori restoran dan rentang harga
-                    - Target performa: rating dan jumlah ulasan yang diinginkan
-                    """
-                )
-
-                st.subheader("2. Rekayasa Fitur")
-                st.write(
-                    """
-                    - Mall per capita dan kepadatan minimarket
-                    - Potensi pasar (kepadatan × ketersediaan infrastruktur)
-                    - Skor aksesibilitas retail dan indikator kualitas
-                    - Transformasi logaritmik untuk menstabilkan distribusi
-                    """
-                )
-
-            with workflow_col2:
-                st.subheader("3. Ensemble Modelling")
-                st.write(
-                    """
-                    - Random Forest, Gradient Boosting (XGBoost), dan Decision Tree
-                    - Voting classifier untuk menyatukan prediksi
-                    - Kalibrasi probabilitas untuk menghasilkan confidence score
-                    """
-                )
-
-                st.subheader("4. Validasi Logika Bisnis")
-                st.write(
-                    """
-                    - Mengecek konsistensi rating dan volume ulasan
-                    - Membatasi target ulasan berdasarkan populasi
-                    - Memastikan kategori bisnis selaras dengan ekspektasi pasar
-                    """
-                )
-
-            st.markdown("---")
-
-            st.header("Nilai yang Diberikan")
-            value_col1, value_col2, value_col3 = st.columns(3)
-
-            with value_col1:
-                st.subheader("Mitigasi Risiko")
-                st.write("• Menghindari lokasi dengan potensi rendah\n• Peringatan untuk target yang tidak realistis")
-
-            with value_col2:
-                st.subheader("Keputusan Objektif")
-                st.write("• Analisis kuantitatif faktor lokasi\n• Rekomendasi berbasis data historis")
-
-            with value_col3:
-                st.subheader("Efisiensi Evaluasi")
-                st.write("• Analisis instan tanpa survei panjang\n• Perbandingan cepat antar alternatif")
-
-            st.markdown("---")
-
-            st.header("Metodologi dan Keandalan")
-            st.write(
-                """
-                - Data latih berasal dari Google Maps dan statistik resmi pemerintah Kota Bandung
-                - Model divalidasi menggunakan cross-validation dan evaluasi hold-out
-                - Fitur validasi bisnis memastikan input pengguna tetap realistis sebelum diproses
-                - Pembaruan berkala disarankan agar model tetap sesuai dengan dinamika pasar
-                """
-            )
-
-            st.markdown("---")
-
-            st.header("Cara Menggunakan")
-            st.write(
-                """
-                1. Buka tab Predict dan pilih kecamatan target beserta kategori F&B Anda
-                2. Masukkan target rating dan jumlah ulasan yang ingin dicapai
-                3. Tekan "Lakukan Prediksi" untuk melihat rekomendasi dan tingkat kepercayaan model
-                4. Gunakan informasi probabilitas dan peringatan sebagai bahan evaluasi lanjutan
-                """
-            )
-
-            st.markdown("---")
-
-            st.header("Catatan Penting")
-            st.warning(
-                """
-                Prediksi ini merupakan alat bantu berbasis data historis. Keputusan akhir tetap memerlukan pertimbangan 
-                modal, strategi, kualitas produk, dan kondisi pasar terkini. Gunakan hasil analisis sebagai referensi 
-                pendukung dalam studi kelayakan yang lebih menyeluruh.
-                """
-            )
+def create_feature_engineered_data(input_data, kecamatan_data):
+    """
+    Melakukan feature engineering pada data input.
+    """
+    # Gabungkan data input dengan data kecamatan
+    combined_data = {**kecamatan_data, **input_data}
+    
+    # Basic features
+    data = {
+        'Jumlah Penduduk': combined_data['Jumlah Penduduk'],
+        'Luas Wilayah (km²)': combined_data['Luas Wilayah (km²)'],
+        'Kepadatan (jiwa/km²)': combined_data['Kepadatan (jiwa/km²)'],
+        'jumlah_mall': combined_data['jumlah_mall'],
+        'jumlah_minimarket': combined_data['jumlah_minimarket'],
+        'jumlah_taman': combined_data['jumlah_taman'],
+        'jumlah_ulasan': combined_data['jumlah_ulasan'],
+        'google_rating': combined_data['google_rating']
+    }
+    
+    # Feature engineering - sama seperti di training
+    data['mall_per_capita'] = data['jumlah_mall'] / data['Jumlah Penduduk'] * 1000
+    data['minimarket_density'] = data['jumlah_minimarket'] / data['Luas Wilayah (km²)']
+    data['taman_per_capita'] = data['jumlah_taman'] / data['Jumlah Penduduk'] * 1000
+    data['ulasan_per_capita'] = data['jumlah_ulasan'] / data['Jumlah Penduduk'] * 1000
+    
+    # Competition dan market metrics
+    data['competition_density'] = data['jumlah_ulasan'] / data['Luas Wilayah (km²)']
+    data['market_potential'] = data['Kepadatan (jiwa/km²)'] * (data['jumlah_mall'] + data['jumlah_minimarket'])
+    data['infrastructure_score'] = data['jumlah_mall'] + data['jumlah_minimarket'] + data['jumlah_taman']
+    data['retail_accessibility'] = data['jumlah_mall'] + data['jumlah_minimarket']
+    
+    # Normalisasi dan log transform
+    data['rating_normalized'] = data['google_rating'] / 5.0
+    data['log_jumlah_ulasan'] = np.log1p(data['jumlah_ulasan'])
+    data['log_kepadatan'] = np.log1p(data['Kepadatan (jiwa/km²)'])
+    
+    # Encoding categorical
     data['kategori_resto_encoded'] = combined_data['kategori_resto_encoded']
     data['price_range_encoded'] = combined_data['price_range'] - 1  # 1-4 menjadi 0-3
     
