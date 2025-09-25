@@ -230,11 +230,11 @@ def preprocess_data(data, components):
     data['taman_per_capita'] = data['jumlah_taman'] / data['Jumlah Penduduk'] * 1000  # per 1000 residents
     data['ulasan_per_capita'] = data['jumlah_ulasan'] / data['Jumlah Penduduk'] * 1000  # per 1000 residents
     
-    # Competition and market metrics
-    data['competition_density'] = (data['jumlah_mall'] + data['jumlah_minimarket']) / data['Luas Wilayah (km²)']
-    data['market_potential'] = data['Jumlah Penduduk'] * (data['google_rating'] / 5)
-    data['infrastructure_score'] = (data['jumlah_taman'] + data['jumlah_mall']) / data['Luas Wilayah (km²)']
-    data['retail_accessibility'] = data['jumlah_minimarket'] / (data['Jumlah Penduduk'] / 1000)  # per 1000 residents
+    # Competition and market metrics - CORRECTED FORMULAS FROM TRAINING
+    data['competition_density'] = data['jumlah_ulasan'] / data['Luas Wilayah (km²)']
+    data['market_potential'] = data['Kepadatan (jiwa/km²)'] * (data['jumlah_mall'] + data['jumlah_minimarket'])
+    data['infrastructure_score'] = data['jumlah_mall'] + data['jumlah_minimarket'] + data['jumlah_taman']
+    data['retail_accessibility'] = data['jumlah_mall'] + data['jumlah_minimarket']
     
     # Normalize and log transform features
     data['rating_normalized'] = data['google_rating'] / 5.0
@@ -256,24 +256,27 @@ def preprocess_data(data, components):
     data['rating_review_interaction'] = data['rating_normalized'] * data['log_jumlah_ulasan']
     data['density_infrastructure'] = data['log_kepadatan'] * data['infrastructure_score']
     
-    # Create feature vector in correct order
-    X = []
+    # Create DataFrame with feature names to avoid warnings
+    feature_data = {}
     for feature in components['feature_names']:
-        X.append(data.get(feature, 0))  # Default to 0 if feature is missing
+        feature_data[feature] = [data.get(feature, 0)]  # Default to 0 if feature is missing
     
-    # Scale features
-    X_scaled = components['scaler'].transform([X])
+    # Create DataFrame to maintain feature names
+    X_df = pd.DataFrame(feature_data)
     
-    return X_scaled
+    # Scale features using DataFrame to preserve feature names
+    X_scaled = components['scaler'].transform(X_df)
+    
+    return X_scaled, X_df
 
-def predict_and_visualize(X_scaled, components, input_data):
+def predict_and_visualize(X_df, components, input_data):
     """Make prediction and visualize results."""
     model = components['model']
     le_target = components['le_target']
     target_mapping_inv = {v: k for k, v in components['target_mapping'].items()}
     
-    # Get prediction probabilities
-    probas = model.predict_proba(X_scaled)[0]
+    # Get prediction probabilities using DataFrame to maintain feature names
+    probas = model.predict_proba(X_df)[0]
     
     # Get predicted class
     predicted_class_idx = np.argmax(probas)
@@ -349,14 +352,72 @@ def main():
     components = load_model_and_components()
     label_encoder_kategori = components['label_encoder_kategori']
     
-    # Input location data
-    input_data = input_location_data(label_encoder_kategori)
+    # Ask user if they want to use sample data
+    print("\nChoose input method:")
+    print("1. Enter your own location data")
+    print("2. Use sample data scenarios")
+    
+    while True:
+        try:
+            choice = int(input("\nSelect option (1 or 2): "))
+            if choice in [1, 2]:
+                break
+            else:
+                print("⚠️  Please enter 1 or 2.")
+        except ValueError:
+            print("⚠️  Please enter a valid number.")
+    
+    if choice == 1:
+        # Input location data manually
+        input_data = input_location_data(label_encoder_kategori)
+    else:
+        # Use sample data
+        try:
+            from sample_datasets import get_sample_datasets, display_sample_info, list_all_samples
+            
+            print("\n" + "="*60)
+            list_all_samples()
+            
+            samples = get_sample_datasets()
+            sample_keys = list(samples.keys())
+            
+            print(f"\nSelect a sample dataset (1-{len(sample_keys)}):")
+            for i, key in enumerate(sample_keys, 1):
+                sample = samples[key]
+                print(f"{i}. {sample['name']} - {sample['expected_outcome']}")
+            
+            while True:
+                try:
+                    sample_choice = int(input(f"\nEnter choice (1-{len(sample_keys)}): ")) - 1
+                    if 0 <= sample_choice < len(sample_keys):
+                        selected_key = sample_keys[sample_choice]
+                        break
+                    else:
+                        print(f"⚠️  Please enter a number between 1 and {len(sample_keys)}.")
+                except ValueError:
+                    print("⚠️  Please enter a valid number.")
+            
+            selected_sample = samples[selected_key]
+            input_data = selected_sample['data'].copy()
+            
+            # Display selected sample info
+            display_sample_info(selected_key)
+            
+            # Confirm with user
+            confirm = input("\nProceed with this sample data? (y/n): ").lower().strip()
+            if confirm not in ['y', 'yes']:
+                print("Operation cancelled.")
+                return
+                
+        except ImportError:
+            print("❌ Sample datasets module not found. Using manual input instead.")
+            input_data = input_location_data(label_encoder_kategori)
     
     # Preprocess data
-    X_scaled = preprocess_data(input_data, components)
+    X_scaled, X_df = preprocess_data(input_data, components)
     
     # Make prediction and visualize
-    predict_and_visualize(X_scaled, components, input_data)
+    predict_and_visualize(X_df, components, input_data)
     
     print("\nThank you for using the FnB Business Success Predictor!")
 

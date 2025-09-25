@@ -1,0 +1,272 @@
+[
+  {
+    "kecamatan":"andir",
+    "Jumlah Penduduk":99119.0,
+    "Luas Wilayah (km\u00b2)":4.22,
+    "Kepadatan (jiwa\/km\u00b2)":23487.91,
+    "jumlah_mall":1.0,
+    "jumlah_minimarket":20.0,
+    "jumlah_taman":34.0
+  },
+  {
+    "kecamatan":"antapani",
+    "Jumlah Penduduk":80530.0,
+    "Luas Wilayah (km\u00b2)":4.22,
+    "Kepadatan (jiwa\/km\u00b2)":19082.94,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":21.0,
+    "jumlah_taman":68.0
+  },
+  {
+    "kecamatan":"arcamanik",
+    "Jumlah Penduduk":80387.0,
+    "Luas Wilayah (km\u00b2)":7.59,
+    "Kepadatan (jiwa\/km\u00b2)":10591.17,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":13.0,
+    "jumlah_taman":77.0
+  },
+  {
+    "kecamatan":"astanaanyar",
+    "Jumlah Penduduk":73232.0,
+    "Luas Wilayah (km\u00b2)":2.68,
+    "Kepadatan (jiwa\/km\u00b2)":27325.37,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":20.0,
+    "jumlah_taman":15.0
+  },
+  {
+    "kecamatan":"babakan ciparay",
+    "Jumlah Penduduk":143651.0,
+    "Luas Wilayah (km\u00b2)":7.07,
+    "Kepadatan (jiwa\/km\u00b2)":20318.39,
+    "jumlah_mall":1.0,
+    "jumlah_minimarket":17.0,
+    "jumlah_taman":13.0
+  },
+  {
+    "kecamatan":"bandung kidul",
+    "Jumlah Penduduk":61419.0,
+    "Luas Wilayah (km\u00b2)":5.42,
+    "Kepadatan (jiwa\/km\u00b2)":11331.92,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":9.0,
+    "jumlah_taman":53.0
+  },
+  {
+    "kecamatan":"bandung kulon",
+    "Jumlah Penduduk":136622.0,
+    "Luas Wilayah (km\u00b2)":6.95,
+    "Kepadatan (jiwa\/km\u00b2)":19657.84,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":20.0,
+    "jumlah_taman":15.0
+  },
+  {
+    "kecamatan":"bandung wetan",
+    "Jumlah Penduduk":28848.0,
+    "Luas Wilayah (km\u00b2)":3.44,
+    "Kepadatan (jiwa\/km\u00b2)":8386.05,
+    "jumlah_mall":4.0,
+    "jumlah_minimarket":14.0,
+    "jumlah_taman":117.0
+  },
+  {
+    "kecamatan":"batununggal",
+    "Jumlah Penduduk":121469.0,
+    "Luas Wilayah (km\u00b2)":4.82,
+    "Kepadatan (jiwa\/km\u00b2)":25201.04,
+    "jumlah_mall":4.0,
+    "jumlah_minimarket":17.0,
+    "jumlah_taman":19.0
+  },
+  {
+    "kecamatan":"bojongloa kaler",
+    "Jumlah Penduduk":124323.0,
+    "Luas Wilayah (km\u00b2)":3.12,
+    "Kepadatan (jiwa\/km\u00b2)":39847.12,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":13.0,
+    "jumlah_taman":34.0
+  },
+  {
+    "kecamatan":"bojongloa kidul",
+    "Jumlah Penduduk":87988.0,
+    "Luas Wilayah (km\u00b2)":5.2,
+    "Kepadatan (jiwa\/km\u00b2)":16920.77,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":16.0,
+    "jumlah_taman":15.0
+  },
+  {
+    "kecamatan":"buahbatu",
+    "Jumlah Penduduk":104434.0,
+    "Luas Wilayah (km\u00b2)":7.46,
+    "Kepadatan (jiwa\/km\u00b2)":13999.2,
+    "jumlah_mall":2.0,
+    "jumlah_minimarket":36.0,
+    "jumlah_taman":90.0
+  },
+  {
+    "kecamatan":"cibeunying kaler",
+    "Jumlah Penduduk":70662.0,
+    "Luas Wilayah (km\u00b2)":4.64,
+    "Kepadatan (jiwa\/km\u00b2)":15228.88,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":34.0,
+    "jumlah_taman":31.0
+  },
+  {
+    "kecamatan":"cibeunying kidul",
+    "Jumlah Penduduk":113535.0,
+    "Luas Wilayah (km\u00b2)":4.14,
+    "Kepadatan (jiwa\/km\u00b2)":27423.91,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":17.0,
+    "jumlah_taman":16.0
+  },
+  {
+    "kecamatan":"cibiru",
+    "Jumlah Penduduk":76236.0,
+    "Luas Wilayah (km\u00b2)":6.84,
+    "Kepadatan (jiwa\/km\u00b2)":11145.61,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":7.0,
+    "jumlah_taman":8.0
+  },
+  {
+    "kecamatan":"cicendo",
+    "Jumlah Penduduk":96382.0,
+    "Luas Wilayah (km\u00b2)":7.79,
+    "Kepadatan (jiwa\/km\u00b2)":12372.53,
+    "jumlah_mall":2.0,
+    "jumlah_minimarket":35.0,
+    "jumlah_taman":46.0
+  },
+  {
+    "kecamatan":"cidadap",
+    "Jumlah Penduduk":54680.0,
+    "Luas Wilayah (km\u00b2)":8.42,
+    "Kepadatan (jiwa\/km\u00b2)":6494.06,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":10.0,
+    "jumlah_taman":8.0
+  },
+  {
+    "kecamatan":"cinambo",
+    "Jumlah Penduduk":25585.0,
+    "Luas Wilayah (km\u00b2)":4.25,
+    "Kepadatan (jiwa\/km\u00b2)":6020.0,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":3.0,
+    "jumlah_taman":7.0
+  },
+  {
+    "kecamatan":"coblong",
+    "Jumlah Penduduk":115273.0,
+    "Luas Wilayah (km\u00b2)":7.31,
+    "Kepadatan (jiwa\/km\u00b2)":15769.22,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":62.0,
+    "jumlah_taman":37.0
+  },
+  {
+    "kecamatan":"gedebage",
+    "Jumlah Penduduk":42071.0,
+    "Luas Wilayah (km\u00b2)":9.96,
+    "Kepadatan (jiwa\/km\u00b2)":4224.0,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":9.0,
+    "jumlah_taman":46.6941384736
+  },
+  {
+    "kecamatan":"kiaracondong",
+    "Jumlah Penduduk":131413.0,
+    "Luas Wilayah (km\u00b2)":5.8,
+    "Kepadatan (jiwa\/km\u00b2)":22657.41,
+    "jumlah_mall":1.0,
+    "jumlah_minimarket":36.0,
+    "jumlah_taman":17.0
+  },
+  {
+    "kecamatan":"lengkong",
+    "Jumlah Penduduk":71000.0,
+    "Luas Wilayah (km\u00b2)":5.91,
+    "Kepadatan (jiwa\/km\u00b2)":12013.54,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":43.0,
+    "jumlah_taman":41.0
+  },
+  {
+    "kecamatan":"mandalajati",
+    "Jumlah Penduduk":73956.0,
+    "Luas Wilayah (km\u00b2)":4.8,
+    "Kepadatan (jiwa\/km\u00b2)":15407.5,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":16.0,
+    "jumlah_taman":21.0
+  },
+  {
+    "kecamatan":"panyileukan",
+    "Jumlah Penduduk":40772.0,
+    "Luas Wilayah (km\u00b2)":5.31,
+    "Kepadatan (jiwa\/km\u00b2)":7678.34,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":9.0,
+    "jumlah_taman":53.0
+  },
+  {
+    "kecamatan":"rancasari",
+    "Jumlah Penduduk":86725.0,
+    "Luas Wilayah (km\u00b2)":7.01,
+    "Kepadatan (jiwa\/km\u00b2)":12371.61,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":21.0,
+    "jumlah_taman":50.0
+  },
+  {
+    "kecamatan":"regol",
+    "Jumlah Penduduk":80609.0,
+    "Luas Wilayah (km\u00b2)":4.74,
+    "Kepadatan (jiwa\/km\u00b2)":17006.12,
+    "jumlah_mall":2.0,
+    "jumlah_minimarket":40.0,
+    "jumlah_taman":15.0
+  },
+  {
+    "kecamatan":"sukajadi",
+    "Jumlah Penduduk":103066.0,
+    "Luas Wilayah (km\u00b2)":5.28,
+    "Kepadatan (jiwa\/km\u00b2)":19520.08,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":33.0,
+    "jumlah_taman":29.0
+  },
+  {
+    "kecamatan":"sukasari",
+    "Jumlah Penduduk":77576.0,
+    "Luas Wilayah (km\u00b2)":6.36,
+    "Kepadatan (jiwa\/km\u00b2)":12197.48,
+    "jumlah_mall":2.0,
+    "jumlah_minimarket":28.0,
+    "jumlah_taman":23.0
+  },
+  {
+    "kecamatan":"sumur bandung",
+    "Jumlah Penduduk":38323.0,
+    "Luas Wilayah (km\u00b2)":3.49,
+    "Kepadatan (jiwa\/km\u00b2)":10980.8,
+    "jumlah_mall":4.0,
+    "jumlah_minimarket":19.0,
+    "jumlah_taman":38.0
+  },
+  {
+    "kecamatan":"ujung berung",
+    "Jumlah Penduduk":90562.0,
+    "Luas Wilayah (km\u00b2)":6.24,
+    "Kepadatan (jiwa\/km\u00b2)":14513.14,
+    "jumlah_mall":3.0484178422,
+    "jumlah_minimarket":24.0,
+    "jumlah_taman":9.0
+  }
+]
